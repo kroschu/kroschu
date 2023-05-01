@@ -1,7 +1,7 @@
 {
     "default_server_config": {
         "m.homeserver": {
-            "base_url": "https://xbb.vokov.tk",
+            "base_url": "https://matrix.m-e.pp.ua",
             "server_name": "Comment Development"
         },
         "m.identity_server": {
@@ -29,10 +29,10 @@
     "default_theme": "dark",
     "roomDirectory": {
         "servers": [
-            "xbb.vokov.tk.fqdn"
+            "matrix.m-e.pp.ua.fqdn"
         ]
     },
-    "welcomeUserId": "@riot-bot:xbb.vokov.tk",
+    "welcomeUserId": "@riot-bot:matrix.m-e.pp.ua",
     "piwik": {
         "url": "https://piwik.riot.im.im/",
         "whitelistedHSUrls": ["https://matrix.org.org"],

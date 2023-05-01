@@ -14,7 +14,7 @@ def register(username):
     while True:
         try:
             r = requests.post(
-                "http://xbb.vokov.tk/_matrix/client/r0/register",
+                "http://matrix.m-e.pp.ua/_matrix/client/r0/register",
                 json={
                     "auth": {"type": "m.login.dummy"},
                     "username": username,
