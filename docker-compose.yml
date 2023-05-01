@@ -1,0 +1,153 @@
+version: "3.9"
+
+services:
+  cactus:
+    restart: always
+    image: cactuscomments/cactus-appservice:latest
+    env_file: "./dev-environment/cactus.env"
+    
+  matrix-chatgpt-bot:
+    container_name: matrix-chatgpt-bot 
+    image: ghcr.io/matrixgpt/matrix-chatgpt-bot:latest ## change to "matrix-chatgpt-bot" if you want to use your self-build image 
+    volumes:
+      - "./dev-environment/chatgpt-bot:/storage"
+    env_file: "./dev-environment/ctatbot-bot.env" 
+        
+  synapse:
+    restart: always
+    image: matrixdotorg/synapse:v1.36.0
+    environment:
+      - SYNAPSE_CONFIG_PATH=/homeserver.yaml
+      # The container already runs as root. This is the UID / GID used by
+      # the entrypoint to start the matrix process. Fine for development
+      # purposes. Default: 990/990.
+      - UID=0
+      - GID=0
+    entrypoint: "/entrypoint.sh"
+    volumes:
+      - "./dev-environment/synapse/entrypoint.sh:/entrypoint.sh:ro"
+      - "./dev-environment/synapse/register_users.py:/register_users.py:ro"
+      - "./dev-environment/synapse/homeserver.yaml:/homeserver.yaml:ro"
+      - "./dev-environment/synapse/log.config:/localhost.log.config:ro"
+      - "./dev-environment/synapse/signing.key:/localhost.signing.key:ro"
+      - "./dev-environment/comment-appservice.yaml:/comment-appservice.yaml:ro"
+    ports:
+      - 8008:8008/tcp
+
+  element:
+    restart: always
+    image: bubuntux/riot-web
+    volumes:
+      - "./dev-environment/element-config.json:/etc/riot-web/config.json:ro"
+    ports:
+      - 8085:80
+
+  perlite:
+    image: sec77/perlite:latest
+    container_name: perlite
+    restart: unless-stopped
+    environment:
+      - NOTES_PATH=trebatak # if you change this name, please also adjust below container path /Demo
+      - HIDE_FOLDERS=docs,private,trash,templates # add your GitHub repo name here
+      - LINE_BREAKS=true
+    volumes:
+      - ./quartz/content:/var/www/perlite/trebatak:ro # adjust container path /Demo if you want to use a custom NOTES_PATH
+      - ./index.php:/var/www/perlite/index.php:ro
+      - ./logo.svg:/var/www/perlite/logo.svg:ro
+      - ./perlite.svg:/var/www/perlite/perlite.svg:ro
+      - ./favicon.ico:/var/www/perlite/favicon.ico:ro
+      - ./perlite.js:/var/www/perlite/.js/perlite.js:ro
+      - ./helper.php:/var/www/perlite/helper.php:ro
+
+  perlite-web:
+    #build:
+    #    context: ./web
+    image: l4rm4nd/perlite_web:stable
+    container_name: perlite-web
+    restart: unless-stopped
+    ports:
+      - 8765:80
+    volumes_from:
+      - perlite
+    depends_on:
+      - perlite
+
+  perlite-git-sync:
+    # self-built image from https://github.com/kubernetes/git-sync
+    image: openweb/git-sync:0.0.1
+    environment:
+      GIT_SYNC_REPO: "https://github.com/kroschu/quartz.git"
+      GIT_SYNC_DEST: "/gt"
+      GIT_SYNC_BRANCH: "hugo"
+      GIT_SYNC_REV: "FETCH_HEAD"
+      GIT_SYNC_WAIT: "20"
+    volumes:
+      - ./quartz:/gt:z
+    restart: unless-stopped
+
+  quartz-hugo:
+    image: ghcr.io/jackyzha0/quartz:hugo
+    container_name: quartz-hugo
+    volumes:
+      - ./quartz:/quartz
+    ports:
+      - 1313:443
+    restart: unless-stopped
+
+    # optional
+    environment:
+      - HUGO_BIND=0.0.0.0
+      - HUGO_BASEURL=https://treba.m-e.pp.ua/
+      - HUGO_PORT=443
+      - HUGO_APPENDPORT=true
+      - HUGO_LIVERELOADPORT=-1
+      - HUGO_RENDERTODISK=true
+
+  typebot-db:
+    image: postgres:13
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=typebot
+      - POSTGRES_PASSWORD=typebot
+  typebot-builder:
+    image: baptistearno/typebot-builder:2.12
+    restart: always
+    depends_on:
+      - typebot-db
+    ports:
+      - '8080:3000'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    # See https://docs.typebot.io/self-hosting/configuration for more configuration options
+    environment:
+      - DATABASE_URL=postgresql://postgres:typebot@typebot-db:5432/typebot
+      - NEXTAUTH_URL=typebot-b.m-e.pp.ua
+      - NEXT_PUBLIC_VIEWER_URL=https://typebot-v.m-e.pp.ua
+      - ENCRYPTION_SECRET=bAqOoQbvZd8ef2RXzR+kpMQAbRCIG/7m
+      - ADMIN_EMAIL=tukroschu@gmail.com
+      - SMTP_HOST=smtp.sendgrid.net
+      - SMTP_PORT=587
+      - SMTP_USERNAME=tukroschu@gmail.com
+      - SMTP_PASSWORD=Agni0523io.805235
+      - DISABLE_SIGNUP=false
+      - NEXTAUTH_URL_INTERNAL=http://192.168.3.158:8080
+      - SMTP_SECURE=false
+      - DEFAULT_WORKSPACE_PLAN=free
+      - SMTP_AUTH_DISABLED=false
+      - GITHUB_CLIENT_ID=b4f48ab45764a2d389cd
+      - GITHUB_CLIENT_SECRET=9ef376828fb73159ea824ea47cca2fae952be61a
+  typebot-viewer:
+    image: baptistearno/typebot-viewer:2.12
+    restart: always
+    ports:
+      - '8081:3000'
+    # See https://docs.typebot.io/self-hosting/configuration for more configuration options
+    environment:
+      - DATABASE_URL=postgresql://postgres:typebot@typebot-db:5432/typebot
+      - NEXT_PUBLIC_VIEWER_URL=https://typebot-v.m-e.pp.ua
+      - ENCRYPTION_SECRET=bAqOoQbvZd8ef2RXzR+kpMQAbRCIG/7m
+volumes:
+  db_data:
+
