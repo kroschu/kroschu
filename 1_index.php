@@ -4,12 +4,12 @@
 <?php
 
 /*!
-  * Version v1.5.4
+  * Version v1.5.3
 */
 
 include('helper.php');
 
-$title = 'Perlite';
+$title = 'Разом - зможемо!';
 $menu = menu($rootDir);
 $jsonGraphData = getfullGraph($rootDir);
 
@@ -30,7 +30,7 @@ $jsonGraphData = getfullGraph($rootDir);
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
     <link href=".styles/app.css" type="text/css" rel="stylesheet">
-    <?php echo loadSettings($rootDir); ?>
+    <?php echo loadThemes($rootDir); ?>
 
     <link id="highlight-js" rel="stylesheet" href=".styles/atom-one-dark.min.css">
     <link rel="stylesheet" href=".styles/perlite.css">
@@ -137,7 +137,7 @@ $jsonGraphData = getfullGraph($rootDir);
                                                 <circle cx="11" cy="11" r="8"></circle>
                                                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                             </svg></div>
-                                        <div class="workspace-tab-header-inner-title">Search</div>
+                                        <div class="workspace-tab-header-inner-title">Пошук</div>
                                         <div class="workspace-tab-header-status-container"></div>
                                         <div class="workspace-tab-header-inner-close-button" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-x">
                                                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -201,7 +201,7 @@ $jsonGraphData = getfullGraph($rootDir);
                                                 </svg></div>
                                         </div>
                                     </div>
-                                    <div class="search-input-container"><input enterkeyhint="search" type="search" placeholder="Type to start search...">
+                                    <div class="search-input-container"><input enterkeyhint="search" type="search" placeholder="Введіть щось...">
                                         <div class="search-input-clear-button" aria-label="Clear search" style="display: none;"></div>
                                     </div>
                                     <div class="search-info-container" style="display: none;"></div>
@@ -275,7 +275,6 @@ $jsonGraphData = getfullGraph($rootDir);
                                     <div class="view-content" style="padding: 0px; overflow: hidden; position: relative;">
                                         <div id="graph_content" style="display: none">
                                             <div id="graph_all"></div>
-                                            <div id="loading-text" class="markdown-preview-view">0%</div>
                                             <div class="graph-controls is-close">
                                                 <div class="clickable-icon graph-controls-button mod-close" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-x">
                                                         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -401,13 +400,13 @@ $jsonGraphData = getfullGraph($rootDir);
                                                     <div class="tree-item graph-control-section mod-display">
                                                         <div class="tree-item-self">
                                                             <div class="tree-item-inner">
-                                                                <header class="graph-control-section-header">Display</header>
+                                                                <header class="graph-control-section-header">Вигляд</header>
                                                             </div>
                                                         </div>
                                                         <div class="tree-item-children">
                                                             <div class="setting-item mod-slider">
                                                                 <div class="setting-item-info">
-                                                                    <div class="setting-item-name">Font size</div>
+                                                                    <div class="setting-item-name">Розмір шрифту</div>
                                                                     <div class="setting-item-description"></div>
                                                                 </div>
                                                                 <div class="setting-item-control"><input class="slider font-size" type="range" min="10" max="30" step="1"></div>
@@ -497,7 +496,7 @@ $jsonGraphData = getfullGraph($rootDir);
                                             <div class="tree-item-self" aria-label-position="left"><span class="tree-item-icon collapse-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon right-triangle">
                                                         <path d="M3 8L12 17L21 8"></path>
                                                     </svg></span>
-                                                <div class="tree-item-inner">Linked mentions</div>
+                                                <div class="tree-item-inner">Пов’язані згадки</div>
                                                 <div class="tree-item-flair-outer"><span class="tree-item-flair" id="nodeCount">0</span></div>
 
                                             </div>
@@ -514,10 +513,10 @@ $jsonGraphData = getfullGraph($rootDir);
             </div>
         </div>
         <div class="status-bar">
-            <div class="status-bar-item plugin-backlink mod-clickable"><span id="backlinksCount">0</span><span>&nbsp;backlinks</span></div>
+            <div class="status-bar-item plugin-backlink mod-clickable"><span id="backlinksCount">0</span><span>&nbsp;посилань</span></div>
             <div class="status-bar-item plugin-word-count">
-                <span class="status-bar-item-segment" id="wordCount">0 words</span>
-                <span class="status-bar-item-segment" id="charCount">0 characters</span>
+                <span class="status-bar-item-segment" id="wordCount">слів</span>
+                <span class="status-bar-item-segment" id="charCount">символів</span>
             </div>
         </div>
     </div>
@@ -542,7 +541,7 @@ $jsonGraphData = getfullGraph($rootDir);
         <div class="modal-bg" style="opacity: 0.85;"></div>
         <div class="modal">
             <div class="modal-close-button"></div>
-            <div class="modal-title"> <a href="."><img src="logo.svg" height="35" alt="Perlite Logo" style="padding-top: 10px"></a> Perlite</div>
+            <div class="modal-title"> <a href="."><img src="logo.svg" height="35" alt="Perlite Logo" style="padding-top: 10px"></a> Разом - зможемо!</div>
             <div class="aboutContent modal-content"></div>
         </div>
     </div>
@@ -551,19 +550,18 @@ $jsonGraphData = getfullGraph($rootDir);
         <div class="modal-bg" style="opacity: 0.85;"></div>
         <div id="settings" class="modal mod-settings">
             <div class="modal-close-button"></div>
-            <div class="modal-title">Perlite Settings</div>
-            <div class="setting-item-description">Some settings need a page reload to take affect!</div>
+            <div class="modal-title">Налаштування</div>
             <div class="modal-content vertical-tabs-container">
                 <div class="vertical-tab-content-container">
                     <div class="vertical-tab-content">
                         <div class="setting-item">
                             <div class="setting-item-info">
-                                <div class="setting-item-name">Theme</div>
+                                <div class="setting-item-name">Тема</div>
                                 <div class="setting-item-description">Select installed theme</div>
                             </div>
                             <div class="setting-item-control">
                                 <select id="themeDropdown" class="dropdown">
-                                    <option value="">Default</option>
+                                    <option value="">За замовчанням</option>
                                 </select><button id="resetTheme" class="mod-cta">Reset</button>
                             </div>
 
@@ -571,8 +569,8 @@ $jsonGraphData = getfullGraph($rootDir);
 
                         <div class="setting-item mod-toggle">
                             <div class="setting-item-info">
-                                <div class="setting-item-name">Dark mode</div>
-                                <div class="setting-item-description">Choose Perlite's default color scheme.</div>
+                                <div class="setting-item-name">Темний режим</div>
+                                <div class="setting-item-description">виберіть колір інтерфейсу</div>
                             </div>
                             <div class="setting-item-control">
                                 <div class="checkbox-container is-enabled darkModeOption"><input type="checkbox" tabindex="0"></div>
@@ -581,16 +579,15 @@ $jsonGraphData = getfullGraph($rootDir);
 
                         <div class="setting-item setting-item-heading">
                             <div class="setting-item-info">
-                                <div class="setting-item-name">Sizes</div>
+                                <div class="setting-item-name">Розмір</div>
                                 <div class="setting-item-description"></div>
                             </div>
                             <div class="setting-item-control"></div>
                         </div>
                         <div class="setting-item">
                             <div class="setting-item-info">
-                                <div class="setting-item-name">Font size</div>
-                                <div class="setting-item-description">Font size in pixels that affects reading
-                                    view.</div>
+                                <div class="setting-item-name">Розмір шрифту</div>
+                                <div class="setting-item-description">Розмір шрифту в пікселях</div>
                             </div>
                             <div class="setting-item-control">
                                 <div class="clickable-icon setting-editor-extra-setting-button" aria-label="Restore text settings">
@@ -603,8 +600,8 @@ $jsonGraphData = getfullGraph($rootDir);
                         </div>
                         <div class="setting-item">
                             <div class="setting-item-info">
-                                <div class="setting-item-name">Panel sizes</div>
-                                <div class="setting-item-description">Reset the panel sizes</div>
+                                <div class="setting-item-name">Розміри панелей</div>
+                                <div class="setting-item-description">скинути роозміри панелей</div>
                             </div>
                             <div class="setting-item-control">
                                 <div class="clickable-icon setting-editor-extra-setting-button" aria-label="Restore panel settings">
@@ -617,7 +614,7 @@ $jsonGraphData = getfullGraph($rootDir);
                         </div>
                         <div class="setting-item setting-item-heading">
                             <div class="setting-item-info">
-                                <div class="setting-item-name">Mobile</div>
+                                <div class="setting-item-name">Мбільний</div>
                                 <div class="setting-item-description"></div>
                             </div>
                             <div class="setting-item-control"></div>
@@ -635,25 +632,16 @@ $jsonGraphData = getfullGraph($rootDir);
 
                         <div class="setting-item setting-item-heading">
                             <div class="setting-item-info">
-                                <div class="setting-item-name">Advanced</div>
+                                <div class="setting-item-name">Розширені налаштування</div>
                                 <div class="setting-item-description"></div>
                             </div>
                             <div class="setting-item-control"></div>
                         </div>
                         <div class="setting-item mod-toggle">
                             <div class="setting-item-info">
-                                <div class="setting-item-name">Disable Pop Hovers</div>
-                                <div class="setting-item-description">Disable popups by hover</div>
-                            </div>
-                            <div class="setting-item-control">
-                                <div class="checkbox-container disablePopUp"><input type="checkbox" tabindex="0"></div>
-                            </div>
-                        </div>
-                        <div class="setting-item mod-toggle">
-                            <div class="setting-item-info">
-                                <div class="setting-item-name">Show inline title</div>
-                                <div class="setting-item-description">Displays the filename as an title inline with the
-                                    file contents.</div>
+                                <div class="setting-item-name">Показати вбудований заголовок</div>
+                                <div class="setting-item-description">Відображає ім'я файлу як заголовок у рядку з
+                                     вміст файлу.</div>
                             </div>
                             <div class="setting-item-control">
                                 <div class="checkbox-container is-enabled inlineTitleOption"><input type="checkbox" tabindex="0"></div>
@@ -661,14 +649,13 @@ $jsonGraphData = getfullGraph($rootDir);
                         </div>
                         <div class="setting-item mod-toggle">
                             <div class="setting-item-info">
-                                <div class="setting-item-name">Collapse Metadata</div>
-                                <div class="setting-item-description">Collapse the Front Matter Metadata contents by default.</div>
+                                <div class="setting-item-name">Згорнути метадані</div>
+                                <div class="setting-item-description">За замовчуванням згорнути вміст метаданих</div>
                             </div>
                             <div class="setting-item-control">
                                 <div class="checkbox-container metadataOption"><input type="checkbox" tabindex="0"></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -698,19 +685,8 @@ $jsonGraphData = getfullGraph($rootDir);
         <div class="modal-bg" style="opacity: 0.85;"></div>
         <div class="modal">
             <div class="modal-close-button"></div>
-            <div class="popup-modal-title inline-title"></div>
-            <div class="goToLink"></div>
+            <div class="popup-modal-title inline-title"></div><div class="goToLink"></div>
             <div id='popUpContent' class="modal-content"></div>
-        </div>
-    </div>
-    <!-- img modal -->
-    <div id="img-modal" class="modal-container mod-dim" style="display: none">
-        <div class="modal-bg" style="opacity: 0.85;"></div>
-        <div class="modal">
-            <div class="modal-close-button"></div>
-            <div class="modal-title img-modal-title inline-title"></div>
-            <div class="goToLink"></div>
-            <div id='img-content' class="modal-content"></div>
         </div>
     </div>
 
