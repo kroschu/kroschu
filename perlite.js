@@ -67,7 +67,7 @@ function getContent(str, home = false, popHover = false) {
 
             // set edit button url       
             $('.clickable-icon.view-action[aria-label="Click to edit"]')
-            .attr("href", "https://treba.m-e.pp.ua/notes/" + encodeURI($("p.vault").text().substring(7)) + "/" + encodeURI(title.replace(/ /g, "-")))
+            .attr("href", "https://treba.m-e.pp.ua/notes/" + encodeURI(title.replace(/ /g, "-")))
 
           }
 
