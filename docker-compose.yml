@@ -36,6 +36,13 @@ services:
     ports:
       - 8085:80
 
+  updater:
+    image: adrianrudnik/matrix-wellknown-server:latest
+    volumes:
+      - ./dev-environment/schema:/var/schema
+    ports:
+      - 8082:8080
+
   perlite:
     image: sec77/perlite:latest
     container_name: perlite
@@ -50,8 +57,8 @@ services:
       - ./logo.svg:/var/www/perlite/logo.svg:ro
       - ./perlite.svg:/var/www/perlite/perlite.svg:ro
       - ./favicon.ico:/var/www/perlite/favicon.ico:ro
-      - ./perlite.js:/var/www/perlite/.js/perlite.js:ro
-      - ./helper.php:/var/www/perlite/helper.php:ro
+#      - ./perlite.js:/var/www/perlite/.js/perlite.js:ro
+#      - ./helper.php:/var/www/perlite/helper.php:ro
 
   perlite-web:
     #build:
