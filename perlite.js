@@ -49,6 +49,7 @@ function getContent(str, home = false, popHover = false) {
 
           // set Browser, document title and nav path
           var title = $("div.mdTitleHide").first().text();
+          var anchor1 = title.replace(/ /g, "-");
           if (title) {
 
             hrefTitle = '<a href=?link=' + encodeURIComponent(title) + '>' + title + '</a>'
@@ -66,8 +67,8 @@ function getContent(str, home = false, popHover = false) {
             $("title").text(title + ' - ' + $("p.vault").text() + ' - ' + $("p.perliteTitle").text());
 
             // set edit button url       
-            $('.clickable-icon.view-action[aria-label="Click to edit"]')
-            .attr("href", "https://treba.m-e.pp.ua/notes/" + encodeURI(title.replace(/ /g, "-")))
+            $('.clickable-icon.view-action[aria-label="Перейти до обговорення"]')
+            .attr("href", "https://treba.m-e.pp.ua/notes/" + encodeURI(anchor1))
 
           }
 
