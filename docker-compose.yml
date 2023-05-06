@@ -48,12 +48,12 @@ services:
     container_name: perlite
     restart: unless-stopped
     environment:
-      - NOTES_PATH=notes # if you change this name, please also adjust below container path /Demo
+      - NOTES_PATH=project # if you change this name, please also adjust below container path /Demo
       - HIDE_FOLDERS=docs,private,trash,templates # add your GitHub repo name here
       - LINE_BREAKS=true
     volumes:
-      - ./quartz/content:/var/www/perlite/notes:ro # adjust container path /Demo if you want to use a custom NOTES_PATH
-      - ./index.php:/var/www/perlite/index.php:ro
+      - ./quartz/content:/var/www/perlite/project:ro # adjust container path /Demo if you want to use a custom NOTES_PATH
+#      - ./index.php:/var/www/perlite/index.php:ro
       - ./logo.svg:/var/www/perlite/logo.svg:ro
       - ./perlite.svg:/var/www/perlite/perlite.svg:ro
       - ./favicon.ico:/var/www/perlite/favicon.ico:ro
