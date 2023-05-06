@@ -67,7 +67,7 @@ function getContent(str, home = false, popHover = false) {
 
             // set edit button url       
             $('.clickable-icon.view-action[aria-label="Click to edit"]')
-              .attr("href", "obsidian://open?vault=" + encodeURIComponent($("p.vault").text()) + "&file=" + encodeURIComponent(title))
+            .attr("href", "https://treba.m-e.pp.ua/notes/" + encodeURI($("p.vault").text()) + "/" + encodeURI(title))
 
           }
 
