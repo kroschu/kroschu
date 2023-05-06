@@ -5,13 +5,7 @@ services:
     restart: always
     image: cactuscomments/cactus-appservice:latest
     env_file: "./dev-environment/cactus.env"
-    
-  matrix-chatgpt-bot:
-    container_name: matrix-chatgpt-bot 
-    image: ghcr.io/matrixgpt/matrix-chatgpt-bot:latest ## change to "matrix-chatgpt-bot" if you want to use your self-build image 
-    volumes:
-      - "./dev-environment/chatgpt-bot:/storage"
-    env_file: "./dev-environment/ctatbot-bot.env" 
+  
         
   synapse:
     restart: always
