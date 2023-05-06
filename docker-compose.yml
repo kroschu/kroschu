@@ -57,7 +57,7 @@ services:
       - ./logo.svg:/var/www/perlite/logo.svg:ro
       - ./perlite.svg:/var/www/perlite/perlite.svg:ro
       - ./favicon.ico:/var/www/perlite/favicon.ico:ro
-      - ./perlite.js:/var/www/perlite/.js/perlite.js:ro
+#      - ./perlite.js:/var/www/perlite/.js/perlite.js:ro
 #      - ./helper.php:/var/www/perlite/helper.php:ro
 
   perlite-web:
