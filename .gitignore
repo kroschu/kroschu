@@ -1,15 +1,4 @@
 ### quartz ###
 # Generated files by hugo
 
-/quartz/public/
-/quartz/resources/_gen/
-/quartz/assets/jsconfig.json
-/quartz/hugo_stats.json
-
-# Temporary lock file while building
-/quartz/.hugo_build.lock
-
-# git folders
-
-/quartz/.git/
-/quartz/.github/
+/quartz
