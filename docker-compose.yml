@@ -26,10 +26,8 @@ services:
       HOMESERVER: "https://matrix.m-e.pp.ua"
       USERNAME: "chatgpt"
       PASSWORD: "805235io"
-      ACCESS_TOKEN: ""
       ENABLE_ENCRYPTION: "true"
       OPEN_AI_KEY: "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"
-      : "" # key from replicate
       
   cactus:
     restart: always
