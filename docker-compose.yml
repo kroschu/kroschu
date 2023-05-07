@@ -27,7 +27,7 @@ services:
       USERNAME: "chatgpt"
       PASSWORD: "805235io"
       ENABLE_ENCRYPTION: "true"
-      OPEN_AI_KEY: "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"
+      OPEN_AI_KEY: "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"
       
   cactus:
     restart: always
