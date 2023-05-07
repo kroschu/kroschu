@@ -8,8 +8,8 @@ services:
 #    restart: always
 #    volumes:
       # use env file or config.json
-      - "./dev-environment/chatgpt-bot/config.json:/app/config.json:ro"
-      
+#      - "./dev-environment/chatgpt-bot/config.json:/app/config.json:ro"
+
   cactus:
     restart: always
     image: cactuscomments/cactus-appservice:latest
