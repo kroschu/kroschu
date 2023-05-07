@@ -10,6 +10,16 @@ services:
       # use env file or config.json
 #      - "./dev-environment/chatgpt-bot/config.json:/app/config.json:ro"
 
+  synapse-admin:
+          container_name: synapse-admin
+          hostname: synapse-admin
+          image: awesometechnologies/synapse-admin:latest
+          environment: 
+            - PUBLIC_URL=https://admin.m-e.pp.ua
+          ports:
+            - "8083:80"
+          restart: unless-stopped
+      
   cactus:
     restart: always
     image: cactuscomments/cactus-appservice:latest
