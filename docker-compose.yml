@@ -54,10 +54,10 @@ services:
 
   perlite:
     image: sec77/perlite:latest
-    container_name: content
+    container_name: perlite
     restart: unless-stopped
     environment:
-      - NOTES_PATH=project # if you change this name, please also adjust below container path /Demo
+      - NOTES_PATH=content # if you change this name, please also adjust below container path /Demo
       - HIDE_FOLDERS=docs,private,trash,templates # add your GitHub repo name here
       - LINE_BREAKS=true
     volumes:
