@@ -1,6 +1,15 @@
 version: "3.9"
 
 services:
+
+  matrixchatgptbot:
+    image: hibobmaster/matrixchatgptbot:latest
+    container_name: matrix_chatgpt_bot
+    restart: always
+    volumes:
+      # use env file or config.json
+      - "./dev-environment/chatgpt-bot/config.json:/app/config.json:ro"
+      
   cactus:
     restart: always
     image: cactuscomments/cactus-appservice:latest
