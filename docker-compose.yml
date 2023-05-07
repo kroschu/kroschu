@@ -19,6 +19,17 @@ services:
           ports:
             - "8083:80"
           restart: unless-stopped
+  matrix-chatgpt-voice-bot:
+    image: ly1998117/matrix-chatgpt-voice-bot:latest
+    environment:
+      LOGGING_LEVEL: DEBUG
+      HOMESERVER: "https://matrix.m-e.pp.ua"
+      USERNAME: "chatgpt"
+      PASSWORD: "805235io"
+      ACCESS_TOKEN: ""
+      ENABLE_ENCRYPTION: "true"
+      OPEN_AI_KEY: "syt_cm9vdA_HJvcpyuVZUUVdNhTSHwa_17FSfg"
+      REPLICATE_API_TOKEN: "" # key from replicate
       
   cactus:
     restart: always
