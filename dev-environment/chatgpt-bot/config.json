@@ -3,5 +3,16 @@
   "user_id": "@root:matrix.m-e.pp.ua",
   "access_token": "syt_cm9vdA_HJvcpyuVZUUVdNhTSHwa_17FSfg",
   "device_id": "URVEZBVDJB",
-  "api_key": "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"
+  "api_key": "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"
 }
+
+
+docker run -d --name matrix-chatgpt-voice-bot \
+  -e HOMESERVER="https://matrix.m-e.pp.ua" \
+  -e USERNAME="gpt" \
+  -e PASSWORD="805235io" \
+  -e DEVICE_ID="BUWWWHTRSF" \
+  -e OPEN_AI_KEY="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" \
+  -e REPLICATE_API_TOKEN="" \
+  -e ENABLE_ENCRYPTION="true" \
+  ly1998117/matrix-chatgpt-voice-bot:latest

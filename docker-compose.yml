@@ -2,13 +2,11 @@ version: "3.9"
 
 services:
 
-#  matrixchatgptbot:
-#    image: hibobmaster/matrixchatgptbot:latest
-#    container_name: matrix_chatgpt_bot
-#    restart: always
-#    volumes:
-      # use env file or config.json
-#      - "./dev-environment/chatgpt-bot/config.json:/app/config.json:ro"
+  matrix_chatgpt_bots:
+    image: hibobmaster/matrixchatgptbot:latest
+    container_name: matrix_chatgpt_bot
+    restart: always
+    env_file: "./dev-environment/gpt.env"
 
   synapse-admin:
           container_name: synapse-admin
@@ -19,6 +17,7 @@ services:
           ports:
             - "8083:80"
           restart: unless-stopped
+          
   matrix-chatgpt-voice-bot:
     image: ly1998117/matrix-chatgpt-voice-bot:latest
     environment:
@@ -27,7 +26,7 @@ services:
       USERNAME: "chatgpt"
       PASSWORD: "805235io"
       ENABLE_ENCRYPTION: "true"
-      OPEN_AI_KEY: "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"
+      OPEN_AI_KEY: "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"
       
   cactus:
     restart: always
