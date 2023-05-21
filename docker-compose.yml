@@ -18,15 +18,15 @@ services:
             - "8083:80"
           restart: unless-stopped
           
-  matrix-chatgpt-voice-bot:
-    image: ly1998117/matrix-chatgpt-voice-bot:latest
-    environment:
-      LOGGING_LEVEL: DEBUG
-      HOMESERVER: "https://matrix.m-e.pp.ua"
-      USERNAME: "chatgpt"
-      PASSWORD: "805235io"
-      ENABLE_ENCRYPTION: "true"
-      OPEN_AI_KEY: "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"
+#  matrix-chatgpt-voice-bot:
+#    image: ly1998117/matrix-chatgpt-voice-bot:latest
+#    environment:
+#      LOGGING_LEVEL: DEBUG
+#      HOMESERVER: "https://matrix.m-e.pp.ua"
+#      USERNAME: "chatgpt"
+#      PASSWORD: "805235io"
+#      ENABLE_ENCRYPTION: "true"
+#     OPEN_AI_KEY: "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"
       
   cactus:
     restart: always
