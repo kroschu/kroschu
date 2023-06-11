@@ -74,6 +74,7 @@ services:
       - 8085:80
 
   updater:
+    restart: always
     image: adrianrudnik/matrix-wellknown-server:latest
     volumes:
       - ./dev-environment/schema:/var/schema
