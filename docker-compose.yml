@@ -2,6 +2,21 @@ version: "3.9"
 
 services:
 
+  obsidian:
+    image: 'braintobytes/obsidian-remote:latest'
+    container_name: obsidian-remote
+    restart: unless-stopped
+    ports:
+      - 8086:8080
+    volumes:
+      - "./dev-environment/obsidian:/vaults:ro"
+      - "./dev-environment/obsidian/config:/config"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Kiev
+      - DOCKER_MODS=linuxserver/mods:universal-git
+
   drakonhub:
     image: kroschu/drakonhub:latest
     container_name: drakonhub
@@ -27,6 +42,16 @@ services:
           ports:
             - "8083:80"
           restart: unless-stopped
+
+  homer:
+    image: b4bz/homer:latest
+    container_name: homer
+    volumes:
+      - "./dev-environment/homer/assets/:/www/assets"
+    ports:
+      - 8040:8080
+    restart: unless-stopped
+
           
 #  matrix-chatgpt-voice-bot:
 #    image: ly1998117/matrix-chatgpt-voice-bot:latest

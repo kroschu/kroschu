@@ -1,0 +1,175 @@
+{
+  "main": {
+    "id": "13c67c390ff162de",
+    "type": "split",
+    "children": [
+      {
+        "id": "422d056d7776a83e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2095306d752a76e7",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "2e97dc7198108173",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Без назви.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cb5c6c991d201b2f",
+    "type": "split",
+    "children": [
+      {
+        "id": "7dadf5d0940d8a32",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea4d336d3eb053c7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "10a4fd28591cabc0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a1e1f671b97e40ec",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "0e95ba499890df74",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "820b7e53e320f867",
+    "type": "split",
+    "children": [
+      {
+        "id": "0e5ebeb0d8141dd5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "32f39dd17383d65d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Без назви.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ada257935bfa8f06",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Без назви.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "ef16b0bf9afa5d99",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "58ddb56f9f1bff94",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Без назви.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Відкрити провідник файлів": false,
+      "canvas:Створити нове полотно": false,
+      "command-palette:Відкрити меню команд": false,
+      "graph:Граф": false,
+      "daily-notes:Сьогоднішня нотатка": false,
+      "templates:Вставити шаблон": false
+    }
+  },
+  "active": "ea4d336d3eb053c7",
+  "lastOpenFiles": [
+    "Без назви.md",
+    "Без назви 2.md",
+    "2023-06-15.md",
+    "Без назви 1.md",
+    "Без назви 1.canvas",
+    "Без назви.canvas"
+  ]
+}
